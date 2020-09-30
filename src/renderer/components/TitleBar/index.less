@@ -1,0 +1,26 @@
+@import 'styles/skin';
+
+.TitleBar {
+  .drop {
+    -webkit-app-region: drag;
+  }
+  .tools {
+    >div {
+      transition: background-color .25s;
+      &:nth-child(1), &:nth-child(2) {
+        &:hover {
+          background-color: @c-light;
+        }
+      }
+      &:nth-child(3) {
+        &:hover {
+          background-color: @c-red;
+          span {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+

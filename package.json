@@ -1,0 +1,84 @@
+{
+  "name": "OSesame",
+  "version": "1.0.0",
+  "description": "A password management software.",
+  "main": "src/main/index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development cross-env ELECTRON_DISABLE_SECURITY_WARNINGS=true node src/main/dev.js",
+    "build": "npm run rbuild && npm run ebuild",
+    "dll": "cross-env NODE_ENV=production rs-compiler dll",
+    "ebuild": "rimraf build && cross-env NODE_ENV=production electron-builder",
+    "rbuild": "cross-env NODE_ENV=production rs-compiler build",
+    "rstart": "rs-compiler start",
+    "estart": "cross-env NODE_ENV=development electron src/main"
+  },
+  "repository": "https://github.com/Jines-z/OSesame",
+  "author": "Jines-z",
+  "license": "CC0-1.0",
+  "dependencies": {
+    "antd": "^4.6.3",
+    "classnames": "^2.2.6",
+    "crypto-js": "^3.3.0",
+    "flyio": "^0.6.14",
+    "js-cookie": "^2.2.1",
+    "lodash": "^4.17.20",
+    "mobx": "^5.15.6",
+    "mobx-react": "^6.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.2.0",
+    "slcss": "^1.2.4"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.10",
+    "@types/crypto-js": "^3.1.43",
+    "@types/js-cookie": "^2.2.3",
+    "@types/lodash": "^4.14.161",
+    "@types/react": "^16.9.5",
+    "@types/react-dom": "^16.9.1",
+    "@types/react-loadable": "^5.5.1",
+    "@types/react-router-dom": "^5.1.0",
+    "antd-dayjs-webpack-plugin": "^1.0.1",
+    "cross-env": "^7.0.2",
+    "electron": "^9.3.0",
+    "electron-builder": "^22.8.0",
+    "rs-compiler": "^1.4.5"
+  },
+  "build": {
+    "productName": "OSesame",
+    "appId": "com.o.sesame",
+    "files": [
+      "!node_modules",
+      "!.eslintignore",
+      "!.eslintrc.js",
+      "!index.html",
+      "!project.config.js",
+      "!README.md",
+      "!tsconfig.json",
+      "!src/renderer",
+      "!dll"
+    ],
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "icon": "src/main/icons/icon.ico",
+      "target": [
+        {
+          "target": "nsis"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "src/main/icons/icon.ico",
+      "installerHeaderIcon": "src/main/icons/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

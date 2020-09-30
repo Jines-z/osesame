@@ -1,0 +1,124 @@
+@import './skin';
+html, body {
+  color: @c_theme_dark !important;
+}
+.bgc-theme {
+  background-color: @c_theme;
+}
+.bgc-theme-dark {
+  background-color: @c_theme_dark;
+}
+.bgc-white {
+  background-color: #fff;
+}
+.bgc-black {
+  background-color: @c-black;
+}
+.bgc-common {
+  background-color: @c-background;
+}
+.bgc-link {
+  background-color: @c-link;
+}
+.c-theme {
+  color: @c_theme;
+}
+.c-black {
+  color: @c-black;
+}
+.c-dark-xl {
+  color: @c-dark-xl;
+}
+.c-dark {
+  color: @c-dark;
+}
+.c-gray {
+  color: @c-gray;
+}
+.c-light {
+  color: @c-light;
+}
+.c-white {
+  color: #fff;
+}
+.c-link {
+  color: @c-link;
+}
+.m-auto {
+  margin: 0 auto !important;
+}
+.flex-fill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex1 {
+  flex: 1;
+}
+.w85p {
+  width: 85%;
+}
+.w250 {
+  width: 250px;
+}
+.h180 {
+  height: 180px;
+}
+.z999 {
+  z-index: 999;
+}
+.bottom--4 {
+  bottom: -4px;
+}
+.f32 {
+  font-size: 32px;
+}
+.lh70 {
+  line-height: 70px;
+}
+.ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+.bl {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 1px;
+    height: 100%;
+    background-color: @c-border;
+    transform: scaleX(0.5);
+  }
+}
+.bt {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: @c-border;
+    transform: scaleY(0.5);
+  }
+}
+.bb {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: @c-border;
+    transform: scaleY(0.5);
+  }
+}
