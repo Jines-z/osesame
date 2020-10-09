@@ -1,15 +1,15 @@
 import React, { FC } from 'react'
 import { Modal, Form, Input } from 'antd'
+import cloneDeep from 'lodash/cloneDeep'
 
 interface Props {
     visible: boolean;
     onOk: (res: any) => void;
     onCancel: (res: any) => void;
-    isEditor: boolean;
     value?: any;
 }
 
-const AddLogin: FC<Props> = ({ visible, onOk, onCancel, isEditor, value }) => {
+const AddLogin: FC<Props> = ({ visible, onOk, onCancel, value }) => {
 
     const [form] = Form.useForm()
     const ok = (): void => {
@@ -18,13 +18,14 @@ const AddLogin: FC<Props> = ({ visible, onOk, onCancel, isEditor, value }) => {
         })
     }
     if (value) {
-        form.setFieldsValue(value)
+        form.setFieldsValue(cloneDeep(value))
     } else {
         form.resetFields()
     }
+
     return (
         <Modal
-            title={isEditor ? '编辑账号' : '添加账号'}
+            title={value ? '编辑账号' : '添加账号'}
             visible={visible}
             getContainer={false}
             width={450}

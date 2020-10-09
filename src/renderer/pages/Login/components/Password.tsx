@@ -21,7 +21,7 @@ const Password: FC<Props> = ({ Root, history }) => {
     }
     const login = async(): Promise<void> => {
         const { username, password, key, path, data, setData } = Root
-        const _password = CryptoJS.HmacMD5(password, key).toString()
+        const _password = CryptoJS.HmacMD5(password, username + key).toString()
         if (data) {
             if (_password === data.password) {
                 history.push('/logins')
@@ -32,7 +32,9 @@ const Password: FC<Props> = ({ Root, history }) => {
             const data = {
                 username,
                 password: _password,
-                data: {}
+                logins: [],
+                notes: [],
+                recycle: []
             }
             await IPC.writeFile(path, JSON.stringify(data))
             setData(data)
@@ -49,7 +51,7 @@ const Password: FC<Props> = ({ Root, history }) => {
             Modal.confirm({
                 title: <span className='fw9'>请您牢记这个密码！</span>,
                 content: '密码将用于后续所有数据的加密，如果忘记密码将会丢失所有数据！',
-                cancelText: '重新设置',
+                cancelText: '再想想',
                 okText: '我知道了',
                 onOk() {
                     login()

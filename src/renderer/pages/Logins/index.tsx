@@ -8,19 +8,11 @@ import Left from './components/Left'
 import Right from './components/Right'
 import LoginsModal from './components/LoginsModal'
 import { createId } from '@/utils'
+import { TYPE } from '@/constant'
 import './index.less'
 
 interface State {
     visible: boolean;
-}
-
-interface LoginInfo {
-    id?: string;
-    username: string;
-    password: string;
-    createTime: string;
-    editorTime: string;
-    remark?: string;
 }
 
 @inject('Root')
@@ -42,6 +34,7 @@ class Logins extends Component<IProps, State> {
         const { Root } = this.props
         const { data, setData, password, path } = Root
         _res.id = createId()
+        _res.type = TYPE.LOGINS
         _res.password = CryptoJS.AES.encrypt(_res.password, password).toString()
         _res.createTime = dayjs().valueOf().toString()
         _res.editorTime = dayjs().valueOf().toString()
@@ -70,7 +63,6 @@ class Logins extends Component<IProps, State> {
                     visible={visible}
                     onOk={this.onOk}
                     onCancel={(): void => this.setState({ visible: false })}
-                    isEditor={false}
                 />
             </Fragment>
         )

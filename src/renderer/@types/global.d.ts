@@ -8,6 +8,17 @@ declare global {
     [key: string]: any;
   }
 
+  export interface LoginInfo {
+    id?: string;
+    name: string;
+    username: string;
+    password: string;
+    createTime: string;
+    editorTime: string;
+    type: number;
+    remark?: string;
+  }
+
   export interface IParam {
     [key: string]: any;
   }
@@ -28,5 +39,5 @@ declare global {
     [key: string]: any;
   }
 
-  export var IPC: any
+  export const IPC: any
 }

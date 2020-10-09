@@ -1,4 +1,4 @@
-const TYPE = {
+export const TYPE = {
     LOGINS: 1,
     NOTES: 2
 }
