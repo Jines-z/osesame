@@ -2,28 +2,37 @@ import React, { FC, useState, ChangeEvent } from 'react'
 import { inject, observer } from 'mobx-react'
 import Search from '@/components/Search'
 import List from '@/components/List'
+import { TYPE } from '@/constant'
 
 interface Props {
     Root: IProps;
-    Logins: IProps;
+    Recycles: IProps;
 }
 
-const Left: FC<Props> = ({ Root, Logins }) => {
+const Left: FC<Props> = ({ Root, Recycles }) => {
 
-    const { logins = [] } = Root.data
-    const { selectId, setSelectId } = Logins
+    const { recycles = [] } = Root.data
+    const { selectId, setSelectId } = Recycles
     const [search, setSearch] = useState('')
-
     const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
         setSearch(e.target.value)
     }
 
-    const list = logins.filter((x: LoginInfo): boolean => {
+    const list = recycles.filter((x: NoteInfo & LoginInfo): boolean => {
         if (!search) {
             return true
         } else {
             const reg = new RegExp(search, 'i')
-            return reg.test(x.name)
+            switch (x.type) {
+                case TYPE.LOGINS:
+                    return reg.test(x.name)
+                    break
+                case TYPE.NOTES:
+                    return reg.test(x.title)
+                default:
+                    return true
+                    break
+            }
         }
     })
 
@@ -36,14 +45,14 @@ const Left: FC<Props> = ({ Root, Logins }) => {
                 value={search}
                 onChange={onChange}
             />
-            <div className='w100p bb' />
             <List
                 list={list}
                 selectId={selectId}
                 onClick={setSelectId}
+                showType={true}
             />
         </div>
     )
 }
 
-export default inject('Root', 'Logins')(observer<any>(Left))
+export default inject('Root', 'Recycles')(observer<any>(Left))

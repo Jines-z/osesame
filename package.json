@@ -20,7 +20,6 @@
     "classnames": "^2.2.6",
     "crypto-js": "^3.3.0",
     "flyio": "^0.6.14",
-    "js-cookie": "^2.2.1",
     "lodash": "^4.17.20",
     "mobx": "^5.15.6",
     "mobx-react": "^6.3.0",

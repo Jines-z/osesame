@@ -11,7 +11,7 @@ export default [{
     icon: 'yaoshi',
     component: Logins
 }, {
-    name: '笔记本',
+    name: '记事本',
     path: '/notes',
     icon: 'jishiben',
     component: Notes

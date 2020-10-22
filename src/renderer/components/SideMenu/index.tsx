@@ -3,9 +3,9 @@ import { withRouter } from 'react-router-dom'
 import { inject } from 'mobx-react'
 import { Menu, message } from 'antd'
 import router from '@/router/config'
-import MenuItem from '@/components/MenuItem'
+import MenuItem from '@/components/SideMenuItem'
 
-@inject('Root')
+@inject('Root', 'Logins', 'Notes')
 class SideMenu extends Component<IProps> {
     state = {
         keys: ['/']
@@ -28,9 +28,11 @@ class SideMenu extends Component<IProps> {
     }
 
     onSelect = ({ key }: any): void => {
-        const { history, Root } = this.props
+        const { history, Root, Logins, Notes } = this.props
         if (key === '/login') {
             Root.setPassword('')
+            Logins.setSelectId(-1)
+            Notes.setSelectId(-1)
         }
         if (key === '/setting') {
             message.warning('正在开发中，敬请期待！')

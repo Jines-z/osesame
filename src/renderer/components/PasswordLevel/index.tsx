@@ -8,8 +8,6 @@ interface Props {
 type status = 'exception' | 'normal' | 'success'
 
 const PasswordLevel: FC<Props> = ({ password }) => {
-    console.log(password)
-    console.log(password.length)
 
     let level = 0
     let status: status = 'exception'

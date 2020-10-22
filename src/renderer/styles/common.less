@@ -1,7 +1,9 @@
 @import './skin';
+
 html, body {
   color: @c_theme_dark !important;
 }
+
 .bgc-theme {
   background-color: @c_theme;
 }
@@ -76,12 +78,24 @@ html, body {
 .lh60 {
   line-height: 60px;
 }
+.mh85p {
+  max-height: 85%;
+}
+.fw4 {
+  font-weight: 400 !important;
+}
 .ellipsis {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-break: keep-all;
+}
+.break {
+  word-break: break-all;
+}
+.pre-wrap {
+  white-space: pre-wrap;
 }
 .bl {
   position: relative;
@@ -120,5 +134,29 @@ html, body {
     height: 1px;
     background-color: @c-border;
     transform: scaleY(0.5);
+  }
+}
+.scroll-bar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    display: block;
+  }
+  &::-webkit-scrollbar-track {
+    border-left: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: rgba(149, 155, 163, 0.2);
+    &:hover {
+      background: rgba(149, 155, 163, 0.4);
+    }
+  }
+  &::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 }

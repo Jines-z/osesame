@@ -15,7 +15,7 @@ const Pages: FC<RouteComponentProps> = ({ history }) => {
     return (
         <Provider { ...store }>
             <Switch>
-                <Route path='/login' component={Login} />
+                <Route exact path='/login' component={Login} />
                 <Route path='/' component={Layouts} />
             </Switch>
         </Provider>

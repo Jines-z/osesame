@@ -9,9 +9,13 @@
 import Root from './Root'
 import Login from './Login'
 import Logins from './Logins'
+import Notes from './Notes'
+import Recycles from './Recycles'
 
 export default {
     Root,
     Login,
-    Logins
+    Logins,
+    Notes,
+    Recycles
 }

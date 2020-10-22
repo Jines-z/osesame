@@ -9,7 +9,6 @@ import Right from './components/Right'
 import LoginsModal from './components/LoginsModal'
 import { createId } from '@/utils'
 import { TYPE } from '@/constant'
-import './index.less'
 
 interface State {
     visible: boolean;

@@ -34,7 +34,7 @@ const Password: FC<Props> = ({ Root, history }) => {
                 password: _password,
                 logins: [],
                 notes: [],
-                recycle: []
+                recycles: []
             }
             await IPC.writeFile(path, JSON.stringify(data))
             setData(data)

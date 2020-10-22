@@ -5,25 +5,25 @@ import List from '@/components/List'
 
 interface Props {
     Root: IProps;
-    Logins: IProps;
+    Notes: IProps;
 }
 
-const Left: FC<Props> = ({ Root, Logins }) => {
+const Left: FC<Props> = ({ Root, Notes }) => {
 
-    const { logins = [] } = Root.data
-    const { selectId, setSelectId } = Logins
+    const { notes = [] } = Root.data
+    const { selectId, setSelectId } = Notes
     const [search, setSearch] = useState('')
 
     const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
         setSearch(e.target.value)
     }
 
-    const list = logins.filter((x: LoginInfo): boolean => {
+    const list = notes.filter((x: NoteInfo): boolean => {
         if (!search) {
             return true
         } else {
             const reg = new RegExp(search, 'i')
-            return reg.test(x.name)
+            return reg.test(x.title)
         }
     })
 
@@ -46,4 +46,4 @@ const Left: FC<Props> = ({ Root, Logins }) => {
     )
 }
 
-export default inject('Root', 'Logins')(observer<any>(Left))
+export default inject('Root', 'Notes')(observer<any>(Left))

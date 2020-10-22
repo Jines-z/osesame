@@ -9,7 +9,7 @@ declare global {
   }
 
   export interface LoginInfo {
-    id?: string;
+    id: string;
     name: string;
     username: string;
     password: string;
@@ -17,6 +17,15 @@ declare global {
     editorTime: string;
     type: number;
     remark?: string;
+  }
+
+  export interface NoteInfo {
+    id: string;
+    title: string;
+    content: string;
+    createTime: string;
+    editorTime: string;
+    type: number;
   }
 
   export interface IParam {

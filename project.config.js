@@ -47,7 +47,7 @@ module.exports = {
     esLint     : true,
     relative   : true,
     update     : false,
-    vendor     : ['react', 'react-dom', 'react-router-dom', 'react-loadable', 'mobx', 'mobx-react', 'crypto-js', 'js-cookie', 'classnames'],
+    vendor     : ['react', 'react-dom', 'react-router-dom', 'react-loadable', 'mobx', 'mobx-react', 'crypto-js', 'classnames'],
     config     : {
         entry: [path.resolve(__dirname, 'src', 'renderer')],
         plugins: isDev ? [] : [new dayAWP()]

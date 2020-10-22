@@ -8,7 +8,7 @@ interface Props {
     value?: string;
     className?: string;
     onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    onPressEnter: (value: string) => void;
+    onPressEnter?: (value: string) => void;
 }
 
 const Search: FC<Props> = ({ type, placeholder, value, onChange, onPressEnter, autoFocus, className }) => {
@@ -19,7 +19,7 @@ const Search: FC<Props> = ({ type, placeholder, value, onChange, onPressEnter, a
         if (!value) {
             return
         }
-        onPressEnter(value)
+        onPressEnter && onPressEnter(value)
     }
     return (
         <div className={'w100p relative ' + className}>
